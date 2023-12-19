@@ -27,14 +27,14 @@ image_paths = ['houseviolation1.jpg', 'houseviolation2.jpg', 'houseviolation3.jp
 common_width = 300
 
 # Display resized images horizontally
-for image_path in image_paths:
-    st.image(Image.open(image_path), width=common_width, caption=f'{image_path[:-4]}')
+
 
 
 df = pd.read_csv('BViolation.csv')
 
 st.title('Boston Building Violations')
-
+for image_path in image_paths:
+    st.image(Image.open(image_path), width=common_width, caption=f'{image_path[:-4]}')
 st.sidebar.header('Search Parameters')
 selected_city = st.sidebar.selectbox('Select City:', df['violation_city'].unique())
 zip_codes = sorted(df['violation_zip'].unique().astype(int))
